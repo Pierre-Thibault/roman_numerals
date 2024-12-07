@@ -1,0 +1,27 @@
+[package]
+name = "roman_numerals"
+version = "1.0.0"
+edition = "2021"
+description = """
+A library to convert integers to their roman numeral representation as strings. Values from 1 to
+3999 are possible otherwise, it returns an OutOfRangeError. Zero does not in roman numerals
+"""
+authors = ["Pierre Thibault <pierre.thibault@pierrethibault.dev"]
+license = "MIT"
+keywords = ["roman", "numerals", "roman-numerals"]
+categories = ["text-processing"]
+readme = "README.mk"
+
+[dependencies]
+range_check = "0.2.0"
+
+[lib]
+name = "roman_numerals"           # The name of the target.
+path = "src/roman_numerals.rs"    # The source file of the target.
+test = true            # Is tested by default.
+doctest = true         # Documentation examples are tested by default.
+bench = true           # Is benchmarked by default.
+doc = true             # Is documented by default.
+proc-macro = false     # Set to `true` for a proc-macro library.
+crate-type = ["lib"]   # The crate types to generate.
+required-features = [] # Features required to build this target (N/A for lib).
