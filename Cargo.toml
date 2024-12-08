@@ -11,7 +11,9 @@ authors = ["Pierre Thibault <pierre.thibault@pierrethibault.dev"]
 license = "MIT"
 keywords = ["roman", "numerals", "roman-numerals"]
 categories = ["text-processing"]
-readme = "README.mk"
+readme = "README.md"
+repository = "git@github.com:Pierre-Thibault/roman_numerals.git"
+homepage = "https://github.com/Pierre-Thibault/roman_numerals"
 
 [dependencies]
 range_check = "0.2.0"
