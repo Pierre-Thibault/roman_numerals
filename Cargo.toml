@@ -12,7 +12,7 @@ license = "MIT"
 keywords = ["roman", "numerals", "roman-numerals"]
 categories = ["text-processing"]
 readme = "README.md"
-repository = "git@github.com:Pierre-Thibault/roman_numerals.git"
+repository = "https://github.com/Pierre-Thibault/roman_numerals.git"
 homepage = "https://github.com/Pierre-Thibault/roman_numerals"
 
 [dependencies]
