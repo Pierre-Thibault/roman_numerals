@@ -4,12 +4,17 @@
 //! Zero does not in roman numerals.
 use range_check::{Check, OutOfRangeError};
 
+/// The roman numeral digits as an array of characters in ascending order.
 pub const ROMAN_NUMERALS: [char; 7] = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
+
+/// The maxium possible value. 3999
 pub const MAXIMUM: u16 = if ROMAN_NUMERAL_LEN % 2 == 0 {
     u16::pow(10, ROMAN_NUMERAL_LEN / 2 - 1) * 9 - 1
 } else {
     u16::pow(10, ROMAN_NUMERAL_LEN / 2) * 4 - 1
 };
+
+/// The minimum possible value. 1
 pub const MINIMUM: u16 = 1;
 
 const EMPTY_STRING: String = String::new();
@@ -57,4 +62,45 @@ pub fn to_roman_numeral(value: u16) -> Result<String, OutOfRangeError<u16>> {
         });
     });
     Ok(result)
+}
+
+#[cfg(test)]
+mod tests {
+    use regex::Regex;
+    use std::fs::File;
+    use std::io::BufRead;
+    use std::io::BufReader;
+
+    use super::*;
+
+    #[test]
+    fn test_odered_set() {
+        let file = File::open("rsc/roman-ordered-set.txt").unwrap();
+        for (index, line) in BufReader::new(file).lines().enumerate() {
+            assert_eq!(to_roman_numeral((index + 1) as u16).unwrap(), line.unwrap());
+        }
+    }
+
+    #[test]
+    fn test_random_set() {
+        let file = File::open("rsc/roman-random-set.txt").unwrap();
+        let re = Regex::new(r"(\w+) - (\d+)").unwrap();
+        for line in BufReader::new(file).lines() {
+            let captures = re.captures(line.as_ref().unwrap()).unwrap();
+            let value: u16 = captures[2].parse().unwrap();
+            assert_eq!(to_roman_numeral(value).unwrap(), captures[1]);
+        }
+    }
+
+    #[test]
+    fn test_out_of_range() {
+        for value in [0, 3999 + 1] {
+            assert!(to_roman_numeral(value).is_err())
+        }
+    }
+
+    #[test]
+    fn test_last_roman_number() {
+        assert!(to_roman_numeral(3999).is_ok())
+    }
 }
