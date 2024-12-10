@@ -1,10 +1,10 @@
 [package]
-name = "roman_numerals"
+name = "roman_numerals_fn"
 version = "1.0.0"
 edition = "2021"
 rust-version = "1.60.0"
 description = """
-A library to convert integers to their roman numeral representation as strings. Values from 1 to
+A function to convert integers to their roman numeral representation as strings. Values from 1 to
 3999 are possible, otherwise it returns an OutOfRangeError. Zero has no representation in roman numerals.
 """
 authors = ["Pierre Thibault <pierre.thibault@pierrethibault.dev"]
@@ -22,8 +22,8 @@ range_check = "0.2.0"
 regex = "1.11.0"
 
 [lib]
-name = "roman_numerals"           
-path = "src/roman_numerals.rs"    
+name = "roman_numerals_fn"           
+path = "src/roman_numerals_fn.rs"    
 test = true           
 doctest = true        
 bench = true          

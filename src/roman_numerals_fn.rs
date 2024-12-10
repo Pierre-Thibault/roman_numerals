@@ -1,7 +1,7 @@
-//! A library to convert integers to their roman numeral representation as strings.
+//! A function to convert integers to their roman numeral representation as strings.
 //!
 //! Values from 1 to 3999 are possible otherwise, it returns an OutOfRangeError.
-//! Zero does not in roman numerals.
+//! Zero does not exist in roman numerals.
 use range_check::{Check, OutOfRangeError};
 
 /// The roman numeral digits as an array of characters in ascending order.
