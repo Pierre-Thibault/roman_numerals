@@ -7,7 +7,7 @@ use range_check::{Check, OutOfRangeError};
 /// The roman numeral digits as an array of characters in ascending order.
 pub const ROMAN_NUMERALS: [char; 7] = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
 
-/// The maxium possible value. 3999
+/// The maximum possible value. 3999
 pub const MAXIMUM: u16 = if ROMAN_NUMERAL_LEN % 2 == 0 {
     u16::pow(10, ROMAN_NUMERAL_LEN / 2 - 1) * 9 - 1
 } else {
